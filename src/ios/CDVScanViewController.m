@@ -21,7 +21,14 @@ static const CGFloat kMargin = 30;
 @property (strong, nonatomic) AVCaptureVideoPreviewLayer* scanLayer; //输入输出的中间桥梁
 @end
 @implementation CDVScanViewController
-
+    
+- (instancetype)initWithScanText:(NSString *)scanText{
+    self = [super init];
+    if (self) {
+        self.scanText = scanText;
+    }
+    return self;
+}
 // MARK: - Lifecycle
 - (void)viewDidLoad
 {
@@ -55,7 +62,7 @@ static const CGFloat kMargin = 30;
     
     //操作提示
     UILabel * tipLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, SCREENHeight*0.9-kBorderW*2, SCREENWidth, kBorderW)];
-    tipLabel.text = @"请扫描充电桩上的二维码";
+    tipLabel.text = self.scanText;
     tipLabel.textColor = [UIColor whiteColor];
     tipLabel.textAlignment = NSTextAlignmentCenter;
     tipLabel.lineBreakMode = NSLineBreakByWordWrapping;

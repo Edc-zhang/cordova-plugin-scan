@@ -30,7 +30,9 @@
 
 - (void)recognize:(CDVInvokedUrlCommand*)command{
     _command = command;
-    UINavigationController *navController =[[UINavigationController alloc] initWithRootViewController:[[CDVScanViewController alloc] init]];
+    NSString *scanText = _command.arguments[0];
+    CDVScanViewController *sController = [[CDVScanViewController alloc]initWithScanText:scanText];   
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:sController];
     [navController.navigationBar setBarTintColor:[UIColor colorWithRed:43/255.f green:173/255.f blue:222/255.f alpha:1]];
     [navController.navigationBar setTitleTextAttributes:
      @{NSForegroundColorAttributeName:[UIColor whiteColor]}];

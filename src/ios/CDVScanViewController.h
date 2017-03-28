@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface CDVScanViewController : UIViewController
-
+@property (nonatomic,copy) NSString *scanText;
+- (instancetype)initWithScanText:(NSString *)scanText;
 @end
